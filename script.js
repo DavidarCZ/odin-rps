@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 // generate computer choice
 function getComputerChoice() {
     switch (Math.floor(Math.random() * 3)) 
@@ -27,32 +24,51 @@ function getHumanChoice() {
     return choice;
 }
 
-//play a round of rps
-function playRound() {
-    let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    
-    if (humanChoice === null) 
-    {
-        return;
+//play a game of 5 rounds
+function playGame() 
+{   
+    let humanScore = 0;
+    let computerScore = 0;
+    //play a round of rps    
+    function playRound(computerChoice, humanChoice) {
+        
+        if (humanChoice === null) 
+        {
+            return;
+        }
+        if (humanChoice === computerChoice) 
+        {
+        console.log("It's a tie!");
+        } 
+        else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) 
+        {
+            console.log("You win!");
+            humanScore++;
+        } 
+        else 
+        {
+            console.log("You lose!");
+            computerScore++;
+        }
     }
 
-    if (humanChoice === computerChoice) 
+    for (let i = 0; i < 5; i++) 
     {
-      console.log("It's a tie!");
+        playRound(getComputerChoice(), getHumanChoice());
+    }
+    console.log(`Human score: ${humanScore}, Computer score: ${computerScore}`);
+    if (humanScore > computerScore) 
+    {
+        console.log("You win the game!");
     } 
-    else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) 
+    else if (humanScore < computerScore) 
     {
-        console.log("You win!");
-        humanScore++;
+        console.log("You lose the game!");
     } 
     else 
     {
-        console.log("You lose!");
-        computerScore++;
+        console.log("It's a tie game!");
     }
 }
 
-
-
-playRound();
+playGame();
