@@ -78,3 +78,17 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 
+let rockButton = document.querySelector('#rock');
+rockButton.addEventListener('click', () => {
+    playRound(getComputerChoice(), 'rock');
+});
+
+let paperButton = document.querySelector('#paper');
+paperButton.addEventListener('click', () => {
+    playRound(getComputerChoice(), 'paper');
+});
+
+let scissorsButton = document.querySelector('#scissors');
+scissorsButton.addEventListener('click', () => {
+    playRound(getComputerChoice(), 'scissors');
+});
