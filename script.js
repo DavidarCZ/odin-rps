@@ -50,6 +50,16 @@ function playRound(computerChoice, humanChoice) {
         computerScore++;
         roundCounter++;
     }
+    updateScore();
+}
+
+function updateScore() {
+    let humanScoreDisplay = document.querySelector('#human-score');
+    let computerScoreDisplay = document.querySelector('#computer-score');
+    let roundCounterDisplay = document.querySelector('#round-counter');
+    humanScoreDisplay.textContent = "Your Score: " + humanScore;
+    computerScoreDisplay.textContent = "Computer Score: " + computerScore;
+    roundCounterDisplay.textContent = "Round: " + roundCounter;
 }
 
 //play a game of 5 rounds
