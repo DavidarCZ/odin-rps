@@ -51,6 +51,7 @@ function playRound(computerChoice, humanChoice) {
         roundCounter++;
     }
     updateScore();
+    checkWinner();
 }
 
 function updateScore() {
@@ -60,6 +61,17 @@ function updateScore() {
     humanScoreDisplay.textContent = "Your Score: " + humanScore;
     computerScoreDisplay.textContent = "Computer Score: " + computerScore;
     roundCounterDisplay.textContent = "Round: " + roundCounter;
+}
+
+function checkWinner() {
+    if (humanScore === 5) 
+    {
+        alert("You win the game!\nWith a score of " + humanScore + " to " + computerScore);
+    } 
+    else if (computerScore === 5) 
+    {
+        alert("You lose the game!\nWith a score of " + humanScore + " to " + computerScore);
+    }
 }
 
 //play a game of 5 rounds
