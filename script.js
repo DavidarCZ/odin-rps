@@ -67,11 +67,20 @@ function checkWinner() {
     if (humanScore === 5) 
     {
         alert("You win the game!\nWith a score of " + humanScore + " to " + computerScore);
+        resetGame();
     } 
     else if (computerScore === 5) 
     {
         alert("You lose the game!\nWith a score of " + humanScore + " to " + computerScore);
+        resetGame();
     }
+}
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundCounter = 0;
+    updateScore();
 }
 
 //play a game of 5 rounds
@@ -114,3 +123,6 @@ let scissorsButton = document.querySelector('#scissors');
 scissorsButton.addEventListener('click', () => {
     playRound(getComputerChoice(), 'scissors');
 });
+
+let resetButton = document.querySelector('#reset');
+resetButton.addEventListener('click', resetGame);
