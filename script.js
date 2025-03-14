@@ -1,3 +1,5 @@
+
+    
 // generate computer choice
 function getComputerChoice() {
     switch (Math.floor(Math.random() * 3)) 
@@ -24,34 +26,35 @@ function getHumanChoice() {
     return choice;
 }
 
+//play a round of rps    
+function playRound(computerChoice, humanChoice) {
+    let result = document.querySelector('#result');
+    if (humanChoice === null) 
+    {
+        return;
+    }
+    if (humanChoice === computerChoice) 
+    {
+        result.textContent = "It's a tie!";
+        roundCounter++;
+    } 
+    else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) 
+    {
+        result.textContent = "You win!";
+        humanScore++;
+        roundCounter++;
+    } 
+    else 
+    {
+        result.textContent = "You lose!";
+        computerScore++;
+        roundCounter++;
+    }
+}
+
 //play a game of 5 rounds
 function playGame() 
 {   
-    let humanScore = 0;
-    let computerScore = 0;
-    //play a round of rps    
-    function playRound(computerChoice, humanChoice) {
-        
-        if (humanChoice === null) 
-        {
-            return;
-        }
-        if (humanChoice === computerChoice) 
-        {
-        console.log("It's a tie!");
-        } 
-        else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) 
-        {
-            console.log("You win!");
-            humanScore++;
-        } 
-        else 
-        {
-            console.log("You lose!");
-            computerScore++;
-        }
-    }
-
     for (let i = 0; i < 5; i++) 
     {
         playRound(getComputerChoice(), getHumanChoice());
@@ -71,4 +74,7 @@ function playGame()
     }
 }
 
-playGame();
+let humanScore = 0;
+let computerScore = 0;
+let roundCounter = 0;
+
