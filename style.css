@@ -36,6 +36,18 @@ header {
     background-color: lightgrey;
 }
 
+.buttons *:active {
+    background-color:rgb(189, 188, 188);
+}
+
+#reset {
+    background-color: tomato;
+}
+
+#reset:active {
+    background-color: rgb(228, 89, 65);
+}
+
 .scores {
     display: flex;
     justify-content: space-around;
