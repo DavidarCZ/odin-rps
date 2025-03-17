@@ -11,3 +11,11 @@ header {
     padding: 5px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    margin: 30px;
+    background-color: rgb(227, 241, 199);
+}
