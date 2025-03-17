@@ -80,6 +80,8 @@ function resetGame() {
     humanScore = 0;
     computerScore = 0;
     roundCounter = 0;
+    let result = document.getElementById('result');
+    result.textContent =  "Ready?";
     updateScore();
 }
 
